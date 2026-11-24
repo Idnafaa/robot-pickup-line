@@ -7,6 +7,7 @@ Only the Python standard library is used.
 """
 
 from pathlib import Path
+import os
 
 # Fragments of the line, joined in order. The joke: a robot files a support
 # ticket about its own cooling fan, and every fix makes the crush worse.
@@ -16,7 +17,7 @@ PARTS = [
     "and every patch only makes it worse.",
 ]
 
-OUTPUT = Path("/output/entry.txt")
+OUTPUT = Path(os.environ.get("MAKEFUN_OUTPUT", "/output/entry.txt"))
 
 
 def build_line(parts):
